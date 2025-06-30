@@ -192,9 +192,11 @@ const Price = styled.h4`
 `;
 
 const OldPrice = styled.h4`
-  font-size: var(--fontxxl);
+  font-size: var(--fontxl);
   color: var(--greyLight);
   margin-bottom: 0.5rem;
+  text-decoration: line-through;
+  opacity: 0.7;
   
   span {
     font-size: var(--fontxs);
@@ -207,9 +209,12 @@ const SavingBadge = styled.div`
   background: var(--primary);
   color: var(--white);
   font-size: var(--fontxs);
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.8rem;
   border-radius: 5px;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem auto;
+  display: inline-block;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(223, 38, 38, 0.3);
 `;
 
 const Duration = styled.p`
@@ -514,8 +519,6 @@ const PricingSection = () => {
           { text: "ChatGPT Plus 1 tháng (slot 1 thiết bị)", highlight: true },
           { text: "Google Drive 400GB 1 tháng (chính chủ)", highlight: true },
           { text: "Gemini Pro 1 tháng (chính chủ)", highlight: true },
-          { text: "Hỗ trợ cài đặt và sử dụng", highlight: true },
-          { text: "Bảo hành trọn đời", highlight: true },
         ],
         popular: false
       },
@@ -529,8 +532,6 @@ const PricingSection = () => {
           { text: "Netflix Premium 1 tháng (Slot Tiết kiệm)", highlight: true },
           { text: "Spotify Premium 1 tháng (chính chủ)", highlight: true },
           { text: "YouTube Premium 1 tháng (chính chủ)", highlight: true },
-          { text: "Hỗ trợ cài đặt và sử dụng", highlight: true },
-          { text: "Bảo hành trọn đời", highlight: true },
         ],
         popular: true
       },
@@ -544,8 +545,6 @@ const PricingSection = () => {
           { text: "Capcut Pro 1 tháng (slot 1 thiết bị)", highlight: true },
           { text: "Canva Pro 1 tháng (slot 1 thiết bị)", highlight: true },
           { text: "Picsart Pro 1 tháng (chính chủ)", highlight: true },
-          { text: "Hỗ trợ cài đặt và sử dụng", highlight: true },
-          { text: "Bảo hành trọn đời", highlight: true },
         ],
         popular: false
       }
@@ -561,8 +560,6 @@ const PricingSection = () => {
           { text: "ChatGPT Plus 1 tháng (chính chủ)", highlight: true },
           { text: "Google Drive 400GB 1 tháng (chính chủ)", highlight: true },
           { text: "Gemini Pro 1 tháng (chính chủ)", highlight: true },
-          { text: "Hỗ trợ cài đặt và sử dụng", highlight: true },
-          { text: "Bảo hành trọn đời", highlight: true },
         ],
         popular: false
       },
@@ -576,8 +573,6 @@ const PricingSection = () => {
           { text: "Netflix Premium 1 tháng (Slot Riêng tư)", highlight: true },
           { text: "Spotify Premium 1 tháng (chính chủ)", highlight: true },
           { text: "YouTube Premium 1 tháng (chính chủ)", highlight: true },
-          { text: "Hỗ trợ cài đặt và sử dụng", highlight: true },
-          { text: "Bảo hành trọn đời", highlight: true },
         ],
         popular: true
       },
@@ -591,8 +586,6 @@ const PricingSection = () => {
           { text: "Capcut Pro 1 tháng (chính chủ)", highlight: true },
           { text: "Canva Pro 1 tháng (chính chủ)", highlight: true },
           { text: "Picsart Pro 1 tháng (chính chủ)", highlight: true },
-          { text: "Hỗ trợ cài đặt và sử dụng", highlight: true },
-          { text: "Bảo hành trọn đời", highlight: true },
         ],
         popular: false
       }

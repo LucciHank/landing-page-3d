@@ -623,6 +623,9 @@ const ContactSection = () => {
               />
             </FormGroup>
             
+            {/* Honeypot field để tránh spam và tắt reCAPTCHA */}
+            <input type="text" name="_gotcha" style={{ display: 'none' }} />
+            
             <SubmitButton type="submit">
               <i className="fa fa-paper-plane"></i> Gửi tin nhắn
             </SubmitButton>
