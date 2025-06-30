@@ -91,6 +91,25 @@ const SubText = styled.h2`
   margin-bottom: 2rem;
   opacity: 0;
   transform: translateY(30px);
+  line-height: 1.4;
+  
+  strong {
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+    white-space: nowrap;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: var(--primary);
+      opacity: 0.5;
+    }
+  }
 
   @media screen and (max-width: 48em) {
     font-size: var(--fontmd);
@@ -432,7 +451,7 @@ const HeroSection = () => {
       <Content>
         <Title ref={titleRef}>Premium Không Giới Hạn</Title>
         <SubText ref={subtextRef}>
-          Trải nghiệm 500+ dịch vụ cao cấp với chi phí tiết kiệm đến 80%
+          Truy cập <strong>500+ ứng dụng Premium</strong> với giá cực sốc - <strong>Tiết kiệm đến 80%</strong> chi phí! Bảo hành trọn đời, kích hoạt ngay trong 5 phút.
         </SubText>
         
         <ServiceLogos ref={logosRef}>

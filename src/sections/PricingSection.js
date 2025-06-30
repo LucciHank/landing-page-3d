@@ -2,29 +2,8 @@ import React, { useRef, useLayoutEffect, useState } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { Canvas } from "@react-three/fiber";
-import { Suspense } from "react";
-import { OrbitControls, Environment } from "@react-three/drei";
 
 gsap.registerPlugin(ScrollTrigger);
-
-// Torus knot model component
-const TorusKnot = ({ color }) => {
-  const meshRef = useRef(null);
-
-  return (
-    <mesh ref={meshRef} rotation={[0, 0, 0]} scale={1.5}>
-      <torusKnotGeometry args={[1, 0.3, 100, 16]} />
-      <meshPhysicalMaterial 
-        color={color} 
-        metalness={0.7}
-        roughness={0.2}
-        clearcoat={1}
-        clearcoatRoughness={0.1}
-      />
-    </mesh>
-  );
-};
 
 const Section = styled.section`
   width: 100vw;
@@ -296,37 +275,6 @@ const CTAButton = styled.a`
   }
 `;
 
-const ModelContainer = styled.div`
-  width: 200px;
-  height: 200px;
-  position: absolute;
-  top: 50%;
-  left: 10%;
-  z-index: 1;
-  opacity: 0.5;
-  
-  @media screen and (max-width: 64em) {
-    display: none;
-  }
-`;
-
-const ModelContainer2 = styled(ModelContainer)`
-  left: auto;
-  right: 10%;
-`;
-
-const BackgroundAnimation = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  background: radial-gradient(ellipse at center, rgba(223, 38, 38, 0.05) 0%, transparent 70%);
-  pointer-events: none;
-`;
-
-// Thêm styled components cho phần Trust Blocks
 const TrustSection = styled.div`
   width: 100%;
   margin-top: 8rem;
@@ -415,10 +363,23 @@ const TrustBlockText = styled.p`
 
 const TrustStat = styled.div`
   font-size: var(--fontlg);
-  color: var(--white);
+  color: var(--primary);
   font-weight: 700;
   text-align: center;
   margin-bottom: 0.5rem;
+  position: relative;
+  display: inline-block;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--primary);
+    opacity: 0.3;
+  }
 `;
 
 const TrustExample = styled.div`
@@ -452,6 +413,17 @@ const TrustExample = styled.div`
       }
     }
   }
+`;
+
+const BackgroundAnimation = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background: radial-gradient(ellipse at center, rgba(223, 38, 38, 0.05) 0%, transparent 70%);
+  pointer-events: none;
 `;
 
 const PricingSection = () => {
@@ -631,7 +603,7 @@ const PricingSection = () => {
               </FeaturesList>
               <CTAButton 
                 popular={plan.popular} 
-                href="https://www.instagram.com/tomoi.vn/" 
+                href="https://www.instagram.com/tomoivn/" 
                 target="_blank" 
                 rel="noopener noreferrer"
               >
@@ -641,40 +613,6 @@ const PricingSection = () => {
           ))}
         </PricingCardsContainer>
       </Container>
-      
-      <ModelContainer>
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <pointLight position={[0, 0, 0]} intensity={0.5} color="#df2626" />
-            <Suspense fallback={null}>
-            <TorusKnot color="#df2626" />
-            </Suspense>
-          <Environment preset="studio" />
-          <OrbitControls 
-            enableZoom={false} 
-            autoRotate 
-            autoRotateSpeed={5}
-          />
-          </Canvas>
-      </ModelContainer>
-      
-      <ModelContainer2>
-        <Canvas camera={{ position: [0, 0, 5], fov: 50 }}>
-          <ambientLight intensity={0.5} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <pointLight position={[0, 0, 0]} intensity={0.5} color="#df2626" />
-          <Suspense fallback={null}>
-            <TorusKnot color="#df2626" />
-          </Suspense>
-          <Environment preset="studio" />
-          <OrbitControls 
-            enableZoom={false} 
-            autoRotate 
-            autoRotateSpeed={-5}
-          />
-        </Canvas>
-      </ModelContainer2>
       
       <TrustSection ref={trustRef}>
         <TrustTitle>Tại Sao Nên Mua Hàng Tại TomOi.vn</TrustTitle>
@@ -687,7 +625,7 @@ const PricingSection = () => {
             <TrustBlockTitle>Khách Hàng Tin Tưởng</TrustBlockTitle>
             <TrustStat>8,000+</TrustStat>
             <TrustBlockText>
-              Chúng tôi tự hào là lựa chọn hàng đầu cho người dùng tại Việt Nam khi cần tài khoản Netflix, Spotify, ChatGPT Plus, và hơn 500 dịch vụ khác.
+              Được tin dùng bởi hơn 8,000 khách hàng tại Việt Nam với tỷ lệ hài lòng lên đến 98%.
             </TrustBlockText>
           </TrustBlock>
           
@@ -698,7 +636,7 @@ const PricingSection = () => {
             <TrustBlockTitle>Giao Dịch Tốc Độ Cực Nhanh</TrustBlockTitle>
             <TrustStat>95%</TrustStat>
             <TrustBlockText>
-              Đơn hàng được xử lý trong vòng 5 phút. Ngay sau khi thanh toán, bạn sẽ nhận được tài khoản qua Zalo/Instagram chỉ trong vài phút.
+              Đơn hàng xử lý trong 5 phút. Nhận tài khoản ngay sau khi thanh toán.
             </TrustBlockText>
           </TrustBlock>
           
@@ -709,7 +647,7 @@ const PricingSection = () => {
             <TrustBlockTitle>Đa Nền Tảng</TrustBlockTitle>
             <TrustStat>500+</TrustStat>
             <TrustBlockText>
-              Hơn 500+ app bản quyền từ học tập, làm việc đến giải trí: Netflix, Spotify, ChatGPT, CapCut, Canva, Youtube, Duolingo, Gemini, Copilot Pro, Office 365…
+              Hơn 500 ứng dụng Premium từ học tập, giải trí đến công cụ làm việc chuyên nghiệp.
             </TrustBlockText>
           </TrustBlock>
           
@@ -718,8 +656,9 @@ const PricingSection = () => {
               <i className="fas fa-piggy-bank"></i>
             </TrustIcon>
             <TrustBlockTitle>Giá Rẻ - Tiết Kiệm Đến 80%</TrustBlockTitle>
+            <TrustStat>-80%</TrustStat>
             <TrustBlockText>
-              Tiết kiệm từ 30% đến 80% so với mua trực tiếp. Chúng tôi tối ưu chi phí bằng cách mua số lượng lớn và áp dụng các chương trình khuyến mãi đặc biệt từ nhà cung cấp.
+              Tiết kiệm từ 30% đến 80% so với mua trực tiếp nhờ chương trình khuyến mãi đặc biệt.
             </TrustBlockText>
           </TrustBlock>
           
@@ -728,8 +667,9 @@ const PricingSection = () => {
               <i className="fas fa-headset"></i>
             </TrustIcon>
             <TrustBlockTitle>Hỗ Trợ 24/7 - Bảo Hành Nghiêm Túc</TrustBlockTitle>
+            <TrustStat>24/7</TrustStat>
             <TrustBlockText>
-              Hỗ trợ nhanh qua Zalo – Facebook – Instagram. Tài khoản lỗi? → Đổi mới miễn phí 100% trong thời gian bảo hành. Không lo bị bỏ rơi sau khi mua.
+              Hỗ trợ nhanh qua Zalo, Facebook, Instagram. Đổi mới miễn phí 100% nếu gặp lỗi.
             </TrustBlockText>
           </TrustBlock>
           
@@ -740,7 +680,7 @@ const PricingSection = () => {
             <TrustBlockTitle>Uy Tín Được Kiểm Chứng</TrustBlockTitle>
             <TrustStat>4.9/5</TrustStat>
             <TrustBlockText>
-              Điểm đánh giá trung bình từ khách hàng. Hàng trăm feedback thực tế đã được đăng trên trang Instagram chính thức của TomOi.vn mỗi ngày!
+              Đánh giá trung bình 4.9/5 từ khách hàng với hàng trăm feedback thực tế mỗi ngày.
             </TrustBlockText>
           </TrustBlock>
         </TrustBlocksContainer>

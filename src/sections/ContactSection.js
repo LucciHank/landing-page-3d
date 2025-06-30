@@ -536,8 +536,7 @@ const ContactSection = () => {
           <InfoBox>
             <InfoTitle>Hãy nói chuyện với chúng tôi</InfoTitle>
             <InfoText>
-              Bạn đang quan tâm đến dịch vụ Premium của chúng tôi? Đừng ngần ngại liên hệ để được tư vấn.
-              Đội ngũ chăm sóc khách hàng luôn sẵn sàng hỗ trợ bạn 24/7.
+              Liên hệ với chúng tôi để được tư vấn. Luôn sẵn sàng hỗ trợ bạn 24/7.
             </InfoText>
             <InfoText>
               <strong>Email:</strong> support@tomoi.vn<br />
@@ -558,13 +557,13 @@ const ContactSection = () => {
             <SocialIcon href="https://www.facebook.com/tomoi.vn" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-facebook-f"></i>
             </SocialIcon>
-            <SocialIcon href="https://www.instagram.com/tomoi.vn/" target="_blank" rel="noopener noreferrer">
+            <SocialIcon href="https://www.instagram.com/tomoivn/" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-instagram"></i>
             </SocialIcon>
-            <SocialIcon href="https://www.tiktok.com/@tomoi.vn" target="_blank" rel="noopener noreferrer">
+            <SocialIcon href="https://www.tiktok.com/@tomoi_vn" target="_blank" rel="noopener noreferrer">
               <i className="fab fa-tiktok"></i>
             </SocialIcon>
-            <SocialIcon href="https://zalo.me/tomoi.vn" target="_blank" rel="noopener noreferrer" className="zalo">
+            <SocialIcon href="https://zalo.me/0562147786" target="_blank" rel="noopener noreferrer" className="zalo">
               Z
             </SocialIcon>
           </SocialLinks>

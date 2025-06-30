@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#df2626" />
     <meta name="description" content="TomOi.vn - 500+ Ứng dụng Premium chính hãng - Netflix, Spotify, ChatGPT Plus với giá tiết kiệm đến 80%! Bảo hành trọn đời, hỗ trợ 24/7, 8000+ khách hàng tin dùng." />
-    <meta name="keywords" content="mua Netflix giá rẻ, Spotify Premium giá sinh viên, ChatGPT Plus, YouTube Premium, CapCut Pro, Canva Pro, Google Drive, Gemini Pro, tài khoản premium giá rẻ, chia sẻ tài khoản premium, dịch vụ streaming, Netflix 4K, Spotify không quảng cáo, TomOi.vn" />
+    <meta name="keywords" content="mua Netflix giá rẻ, Spotify Premium giá sinh viên, ChatGPT Plus chính chủ, YouTube Premium, CapCut Pro, Canva Pro, Google Drive 400GB, Gemini Pro, tài khoản premium giá rẻ, chia sẻ tài khoản premium, dịch vụ streaming, Netflix 4K, Spotify không quảng cáo, TomOi.vn" />
     <meta name="author" content="TomOi.vn" />
     <meta property="og:title" content="TomOi.vn - 500+ Ứng Dụng Premium Chính Hãng | Tiết Kiệm Đến 80%" />
-    <meta property="og:description" content="Tiết kiệm 30-80% chi phí với Netflix, Spotify, ChatGPT Plus, YouTube Premium và hơn 500 dịch vụ cao cấp khác. Bảo hành trọn đời, hỗ trợ 24/7!" />
+    <meta property="og:description" content="Netflix, Spotify, ChatGPT Plus với giá tiết kiệm 30-80%. Bảo hành trọn đời, hỗ trợ 24/7, kích hoạt trong 5 phút!" />
     <meta property="og:image" content="https://tomoi.vn/logo512.png" />
     <meta property="og:url" content="https://tomoi.vn" />
     <meta property="og:type" content="website" />
@@ -25,6 +25,8 @@
     <!-- Preload critical resources -->
     <link rel="preload" href="%PUBLIC_URL%/scene.gltf" as="fetch" crossorigin="anonymous" />
     <link rel="preload" href="%PUBLIC_URL%/textures/material_baseColor.jpeg" as="image" />
+    <link rel="preload" as="font" href="https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff2" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" as="font" href="https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-medium-webfont.woff2" type="font/woff2" crossorigin="anonymous" />
     
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -65,13 +67,13 @@
         "description": "Cung cấp tài khoản Premium chính hãng với giá tiết kiệm cho Netflix, Spotify, ChatGPT Plus và hơn 500 dịch vụ khác.",
         "sameAs": [
           "https://www.facebook.com/tomoi.vn",
-          "https://www.instagram.com/tomoi.vn/",
-          "https://www.tiktok.com/@tomoi.vn",
-          "https://zalo.me/tomoi.vn"
+          "https://www.instagram.com/tomoivn/",
+          "https://www.tiktok.com/@tomoi_vn",
+          "https://zalo.me/0562147786"
         ],
         "contactPoint": {
           "@type": "ContactPoint",
-          "telephone": "+84988888888",
+          "telephone": "+84562147786",
           "contactType": "customer service",
           "availableLanguage": ["Vietnamese", "English"],
           "contactOption": "TollFree",
@@ -217,6 +219,16 @@
       #root {
         min-height: 100vh;
       }
+      /* Optimize FCP */
+      .nav-placeholder {
+        height: 70px;
+        width: 100%;
+        background-color: rgba(18, 18, 18, 0.95);
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 99;
+      }
     </style>
   </head>
   <body>
@@ -227,6 +239,8 @@
         <div class="loading-circle"></div>
       </div>
     </div>
+    <!-- Nav placeholder to prevent CLS -->
+    <div class="nav-placeholder"></div>
     <div id="root"></div>
     <script>
       // Remove loading screen after content loads
@@ -234,6 +248,12 @@
         setTimeout(function() {
           document.getElementById('loading-screen').style.display = 'none';
         }, 500);
+        
+        // Remove nav placeholder after real nav loads
+        setTimeout(function() {
+          const navPlaceholder = document.querySelector('.nav-placeholder');
+          if (navPlaceholder) navPlaceholder.style.display = 'none';
+        }, 1000);
       });
       
       // Lazy load images
@@ -317,7 +337,61 @@
             }
           });
         });
+        
+        // Track CTA clicks
+        document.addEventListener('click', function(e) {
+          const cta = e.target.closest('.cta-button, [data-cta]');
+          if (cta) {
+            if (typeof gtag === 'function') {
+              gtag('event', 'cta_click', {
+                'cta_text': cta.innerText || 'image cta',
+                'cta_location': cta.dataset.location || 'unknown'
+              });
+            }
+          }
+        });
       });
+      
+      // Add structured data for local business
+      const localBusinessData = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "TomOi.vn",
+        "image": "https://tomoi.vn/logo512.png",
+        "url": "https://tomoi.vn",
+        "telephone": "+84562147786",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Hồ Chí Minh",
+          "addressRegion": "HCM",
+          "addressCountry": "VN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": "10.7769",
+          "longitude": "106.7009"
+        },
+        "openingHoursSpecification": {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "08:00",
+          "closes": "21:00"
+        },
+        "priceRange": "₫₫"
+      };
+      
+      const script = document.createElement('script');
+      script.type = 'application/ld+json';
+      script.textContent = JSON.stringify(localBusinessData);
+      document.head.appendChild(script);
     </script>
   </body>
 </html>
