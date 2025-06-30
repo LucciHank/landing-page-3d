@@ -83,58 +83,100 @@ const Title = styled.h1`
 `;
 
 const QuoteContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-bottom: 2.5rem;
+  margin: 2rem 0;
+  position: relative;
+  width: 90%;
+  max-width: 800px;
+  text-align: center;
   opacity: 0;
   transform: translateY(30px);
 `;
 
-const QuoteText = styled.p`
-  font-size: var(--fontxxl);
-  font-family: var(--fontL);
+const Quote = styled.p`
+  font-family: 'Georgia', serif;
   font-style: italic;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
-  text-align: center;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
-  letter-spacing: -0.02em;
-  max-width: 800px;
-  line-height: 1.3;
+  font-size: var(--fontlg);
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+  position: relative;
+  margin-bottom: 1.5rem;
+  
+  &::before {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    top: -2rem;
+    left: -1rem;
+    color: rgba(223, 38, 38, 0.3);
+  }
+  
+  &::after {
+    content: '"';
+    font-size: 4rem;
+    position: absolute;
+    bottom: -3rem;
+    right: -1rem;
+    color: rgba(223, 38, 38, 0.3);
+  }
 
   @media screen and (max-width: 48em) {
-    font-size: var(--fontxl);
+    font-size: var(--fontmd);
+    
+    &::before, &::after {
+      font-size: 3rem;
+    }
   }
 `;
 
-const QuoteAuthor = styled.span`
-  font-size: var(--fontmd);
-  color: rgba(255, 255, 255, 0.5);
-  margin-top: 1.5rem;
-  align-self: flex-end;
-  font-style: normal;
-
-  @media screen and (max-width: 48em) {
-    font-size: var(--fontsm);
-  }
+const QuoteAuthor = styled.p`
+  font-size: var(--fontxs);
+  color: var(--greyLight);
+  text-align: right;
+  margin-top: 1rem;
+  margin-right: 2rem;
 `;
 
 const SubText = styled.h2`
   font-size: var(--fontlg);
-  font-family: var(--fontR);
+  font-family: var(--fontL);
   text-align: center;
-  width: 80%;
+  width: 90%;
+  max-width: 800px;
   color: var(--white);
-  margin-bottom: 2rem;
+  margin: 3rem 0 2rem;
   opacity: 0;
   transform: translateY(30px);
-  line-height: 1.4;
-  font-weight: 400;
+  line-height: 1.6;
+  position: relative;
+  
+  .highlight-container {
+    display: inline-block;
+    margin: 0 0.25rem;
+    position: relative;
+  }
+  
+  .highlight {
+    color: var(--primary);
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .highlight-container::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 30%;
+    background-color: rgba(223, 38, 38, 0.15);
+    z-index: 0;
+    transform: skewX(-15deg);
+  }
 
   @media screen and (max-width: 48em) {
     font-size: var(--fontmd);
-    width: 90%;
+    margin: 2rem 0 1.5rem;
   }
 `;
 
@@ -238,42 +280,56 @@ const Button = styled.a`
 
 const FloatingBadge = styled.div`
   position: absolute;
-  top: 25%;
-  right: 10%;
-  background-color: rgba(223, 38, 38, 0.9);
+  top: 15%;
+  right: 5%;
+  background: linear-gradient(135deg, var(--primary) 0%, #c9120e 100%);
   color: white;
-  padding: 1rem;
+  padding: 1rem 1.5rem;
   border-radius: 50%;
+  font-weight: bold;
+  font-size: var(--fontxs);
+  text-align: center;
   width: 120px;
   height: 120px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  text-align: center;
-  font-weight: bold;
-  transform: rotate(12deg);
-  font-size: var(--fontxs);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  justify-content: center;
+  box-shadow: 0px 10px 25px rgba(223, 38, 38, 0.5);
   opacity: 0;
-  animation: float 4s infinite ease-in-out;
+  animation: float 3s ease-in-out infinite;
+  transform: rotate(-10deg);
+  line-height: 1.4;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  
+  }
 
   @keyframes float {
     0% {
-      transform: rotate(12deg) translateY(0px);
+      transform: translateY(0px) rotate(-10deg);
     }
     50% {
-      transform: rotate(12deg) translateY(-15px);
+      transform: translateY(-15px) rotate(-5deg);
     }
     100% {
-      transform: rotate(12deg) translateY(0px);
+      transform: translateY(0px) rotate(-10deg);
+    }
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 
   @media screen and (max-width: 48em) {
-    width: 80px;
-    height: 80px;
     font-size: var(--fontxxs);
-    top: 30%;
+    width: 90px;
+    height: 90px;
+    right: 10%;
   }
 `;
 
@@ -352,12 +408,22 @@ const CountdownLabel = styled.div`
 
 const UrgencyText = styled.p`
   font-size: var(--fontxs);
-  color: var(--primary);
+  color: var(--white);
   text-align: center;
-  margin-top: 0.5rem;
-  font-weight: 600;
+  margin-top: 1rem;
   opacity: 0;
   transform: translateY(30px);
+  background: rgba(223, 38, 38, 0.15);
+  border-radius: 30px;
+  padding: 0.5rem 1.5rem;
+  display: inline-block;
+  font-weight: 500;
+  border: 1px solid rgba(223, 38, 38, 0.3);
+  
+  @media screen and (max-width: 48em) {
+    font-size: var(--fontxxs);
+    padding: 0.4rem 1rem;
+  }
 `;
 
 const HeroSection = () => {
@@ -365,10 +431,11 @@ const HeroSection = () => {
   const titleRef = useRef(null);
   const quoteRef = useRef(null);
   const subtextRef = useRef(null);
+  const logosRef = useRef(null);
   const buttonsRef = useRef(null);
   const badgeRef = useRef(null);
-  const scrollDownRef = useRef(null);
   const urgencyRef = useRef(null);
+  const scrollDownRef = useRef(null);
   
   const [countdown, setCountdown] = useState({
     days: 0,
@@ -420,17 +487,27 @@ const HeroSection = () => {
   useLayoutEffect(() => {
     const tl = gsap.timeline();
     
-    tl.to(quoteRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power4.out"
-    }).to(subtextRef.current, {
+    tl.to(titleRef.current, {
       opacity: 1,
       y: 0,
       duration: 1,
       ease: "power4.out"
-    }, "-=0.7").to(buttonsRef.current, {
+    }).to(quoteRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power4.out"
+    }, "-=0.5").to(subtextRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power4.out"
+    }, "-=0.5").to(logosRef.current, {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power4.out"
+    }, "-=0.5").to(buttonsRef.current, {
       opacity: 1,
       y: 0,
       duration: 1,
@@ -441,6 +518,11 @@ const HeroSection = () => {
       ease: "power4.out"
     }, "-=0.5").to(scrollDownRef.current, {
       opacity: 1,
+      duration: 0.8,
+      ease: "power4.out"
+    }, "-=0.3").to(urgencyRef.current, {
+      opacity: 1,
+      y: 0,
       duration: 0.8,
       ease: "power4.out"
     }, "-=0.3");
@@ -465,16 +547,17 @@ const HeroSection = () => {
       <Overlay />
       
       <Content>
+        <Title ref={titleRef}>Premium Không Giới Hạn</Title>
+        
         <QuoteContainer ref={quoteRef}>
-          <QuoteText>
-            "Customers don't buy products. They buy experiences."
-            <QuoteAuthor>- Joseph Pine</QuoteAuthor>
-          </QuoteText>
+          <Quote>Customers don't buy products. They buy experiences.</Quote>
+          <QuoteAuthor>— Joseph Pine —</QuoteAuthor>
         </QuoteContainer>
-
+        
         <SubText ref={subtextRef}>
-          Trải nghiệm hơn 500 sản phẩm Premium với chi phí tiết kiệm lên tới 80%
+          Trải nghiệm hơn <span className="highlight-container"><span className="highlight">500+ sản phẩm Premium</span></span> với chi phí <span className="highlight-container"><span className="highlight">tiết kiệm lên tới 80%</span></span>
         </SubText>
+        
         
         <CountdownContainer>
           <CountdownItem>
@@ -521,7 +604,7 @@ const HeroSection = () => {
       </Content>
 
       <FloatingBadge ref={badgeRef}>
-        Ưu đãi giới hạn<br />Giảm 30%
+        Ưu đãi giới hạn
       </FloatingBadge>
 
       <ScrollDown ref={scrollDownRef}>

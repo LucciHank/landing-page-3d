@@ -278,10 +278,21 @@ const CTAButton = styled.a`
 const TrustSection = styled.div`
   width: 100%;
   margin-top: 8rem;
-  padding: 4rem 0;
-  background: #1a1a1a;
-  border-top: 1px solid #2a2a2a;
-  border-bottom: 1px solid #2a2a2a;
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(223, 38, 38, 0.05) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+  }
 `;
 
 const TrustTitle = styled.h2`
@@ -289,7 +300,7 @@ const TrustTitle = styled.h2`
   font-family: var(--fontL);
   color: var(--white);
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3.5rem;
   position: relative;
   
   &::after {
@@ -310,82 +321,151 @@ const TrustTitle = styled.h2`
 
 const TrustBlocksContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  position: relative;
+  z-index: 1;
   
   @media screen and (max-width: 64em) {
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  @media screen and (max-width: 48em) {
+    grid-template-columns: 1fr;
     gap: 2rem;
   }
 `;
 
-const TrustBlock = styled.div`
-  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.04), transparent 70%), #1f1f1f;
-  border-radius: 20px;
-  padding: 2.5rem;
-  border: 1px solid #2a2a2a;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-  
-  &:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(223, 38, 38, 0.15);
-    border-color: var(--primary);
-  }
-`;
-
-const TrustIcon = styled.div`
-  font-size: 3rem;
-  color: var(--primary);
-  width: 70px;
-  height: 70px;
-  background: rgba(223, 38, 38, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 1.5rem;
-  text-align: center;
-`;
-
-const TrustBlockTitle = styled.h3`
-  font-size: var(--fontlg);
-  color: var(--white);
-  margin-bottom: 1rem;
-  text-align: center;
-  font-weight: 600;
-`;
-
-const TrustBlockText = styled.p`
-  font-size: var(--fontxs);
-  color: var(--greyLight);
-  line-height: 1.6;
-  text-align: center;
-  margin-top: 1.5rem;
-`;
-
 const TrustStat = styled.div`
-  font-size: var(--fontlg);
+  font-size: var(--fontxxl);
   color: var(--primary);
   font-weight: 700;
   text-align: center;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0 1.5rem;
   position: relative;
   display: inline-block;
+  transition: transform 0.3s ease;
+  text-shadow: 0 2px 10px rgba(223, 38, 38, 0.3);
+  letter-spacing: -0.02em;
   
   &::after {
     content: '';
     position: absolute;
-    bottom: -5px;
+    bottom: -8px;
     left: 0;
     width: 100%;
     height: 2px;
     background: var(--primary);
     opacity: 0.3;
   }
+`;
+
+const TrustBlock = styled.div`
+  background: rgba(30, 30, 30, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  transition: all 0.4s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 20px;
+    padding: 1px;
+    background: linear-gradient(225deg, rgba(255, 255, 255, 0.1) 0%, rgba(40, 40, 40, 0) 50%);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 0;
+  }
+  
+  /* Light beam effect */
+  &::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 1.2s ease;
+    pointer-events: none;
+    z-index: 0;
+  }
+  
+  &:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 25px rgba(223, 38, 38, 0.15);
+    border-color: rgba(223, 38, 38, 0.15);
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    &::after {
+      opacity: 1;
+      transform: rotate(30deg) translateX(60%);
+    }
+    
+    ${TrustStat} {
+      transform: scale(1.05);
+    }
+  }
+`;
+
+const TrustIcon = styled.div`
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1.5rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  background: rgba(223, 38, 38, 0.08);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 16px rgba(223, 38, 38, 0.15);
+`;
+
+const TrustBlockTitle = styled.h3`
+  font-size: var(--fontmd);
+  color: var(--white);
+  margin-bottom: 1rem;
+  text-align: center;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
+`;
+
+const TrustBlockText = styled.p`
+  font-size: var(--fontxs);
+  color: var(--greyLight);
+  line-height: 1.7;
+  text-align: center;
+  margin-bottom: 1rem;
+  position: relative;
+  z-index: 1;
 `;
 
 const TrustExample = styled.div`

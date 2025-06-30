@@ -141,7 +141,7 @@ const ServiceCard = styled.div`
   margin-bottom: 3rem;
   box-shadow: 0 20px 80px rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.07);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s ease;
   position: relative;
   overflow: hidden;
   
@@ -156,9 +156,33 @@ const ServiceCard = styled.div`
     z-index: -1;
   }
   
+  /* Light beam effect */
+  &::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.05) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 1.2s ease;
+  }
+  
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 30px 100px rgba(0, 0, 0, 0.5), 0 0 30px rgba(223, 38, 38, 0.3);
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 30px rgba(223, 38, 38, 0.2);
+    border-color: rgba(255, 255, 255, 0.12);
+    
+    &::after {
+      opacity: 1;
+      transform: rotate(30deg) translateX(100%);
+    }
   }
   
   @media screen and (max-width: 48em) {
@@ -261,13 +285,13 @@ const PriceCard = styled.div`
   flex-direction: column;
   align-items: center;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.4s ease;
   overflow: visible;
   position: relative;
   z-index: 1;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   
-  &:before {
+  &::before {
     content: '';
     position: absolute;
     inset: 0;
@@ -282,25 +306,39 @@ const PriceCard = styled.div`
     z-index: -1;
   }
   
-  &:hover {
-    background: rgba(50, 50, 50, 0.8);
-    transform: translateY(-10px);
-    box-shadow: 
-      0 20px 40px rgba(0, 0, 0, 0.4),
-      0 0 30px rgba(223, 38, 38, 0.2);
-    
-    &:before {
-      opacity: 1;
-    }
+  /* Light beam effect */
+  &::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -100%;
+    width: 300%;
+    height: 300%;
+    background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.03) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(30deg);
+    opacity: 0;
+    transition: opacity 0.8s ease, transform 1.2s ease;
+    pointer-events: none;
   }
   
-  /* Hiệu ứng đổ bóng khi có nhiều card */
-  &:nth-child(1) { transform: translateY(0); }
-  &:nth-child(2) { transform: translateY(-5px); }
-  &:nth-child(3) { transform: translateY(0); }
-  
   &:hover {
-    transform: translateY(-15px);
+    background: rgba(50, 50, 50, 0.8);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4), 0 0 25px rgba(223, 38, 38, 0.15);
+    border-color: rgba(223, 38, 38, 0.15);
+    
+    &::before {
+      opacity: 1;
+    }
+    
+    &::after {
+      opacity: 1;
+      transform: rotate(30deg) translateX(60%);
+    }
   }
 `;
 
@@ -408,7 +446,7 @@ const ShowcaseItem = styled.div`
   overflow: hidden;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
   position: relative;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transition: all 0.3s ease;
   
   @media screen and (max-width: 48em) {
     width: 150px;
@@ -431,16 +469,13 @@ const ShowcaseItem = styled.div`
     -webkit-mask-composite: xor;
     mask-composite: exclude;
     opacity: 0;
-    transition: opacity 0.4s ease;
+    transition: opacity 0.3s ease;
     z-index: 1;
     pointer-events: none;
   }
   
   &:hover {
-    transform: translateY(-10px) scale(1.05);
-    box-shadow: 
-      0 15px 30px rgba(0, 0, 0, 0.4),
-      0 0 20px rgba(223, 38, 38, 0.3);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(223, 38, 38, 0.2);
     z-index: 2;
     
     &:before {
@@ -1301,7 +1336,7 @@ const ServicesSection = () => {
               target="_blank" 
               rel="noopener noreferrer"
             >
-              <i className="fab fa-instagram"></i> Liên hệ ngay để đặt mua
+              <i className="fab fa-instagram"></i> Liên hệ mua hàng ngay
             </CommonCTAButton>
           </ServiceCard>
           
