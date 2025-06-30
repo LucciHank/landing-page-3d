@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@fontsource/source-sans-pro": "^5.2.5",
+    "@formspree/react": "^3.0.0",
     "@react-three/drei": "^9.29.1",
     "@react-three/fiber": "^8.7.2",
     "gsap": "^3.11.1",
