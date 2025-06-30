@@ -278,7 +278,10 @@ const CTAButton = styled.a`
 const TrustSection = styled.div`
   width: 100%;
   margin-top: 8rem;
-  padding: 2rem 0;
+  padding: 4rem 0;
+  background: #1a1a1a;
+  border-top: 1px solid #2a2a2a;
+  border-bottom: 1px solid #2a2a2a;
 `;
 
 const TrustTitle = styled.h2`
@@ -286,7 +289,7 @@ const TrustTitle = styled.h2`
   font-family: var(--fontL);
   color: var(--white);
   text-align: center;
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
   position: relative;
   
   &::after {
@@ -307,46 +310,49 @@ const TrustTitle = styled.h2`
 
 const TrustBlocksContainer = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 2rem;
   
   @media screen and (max-width: 64em) {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  @media screen and (max-width: 48em) {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
   }
 `;
 
 const TrustBlock = styled.div`
-  background: rgba(30, 30, 30, 0.7);
-  backdrop-filter: blur(10px);
+  background: radial-gradient(circle at 50% 0%, rgba(255, 255, 255, 0.04), transparent 70%), #1f1f1f;
   border-radius: 20px;
-  padding: 2rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 2.5rem;
+  border: 1px solid #2a2a2a;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
   
   &:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3), 0 0 20px rgba(223, 38, 38, 0.2);
-    border-color: rgba(223, 38, 38, 0.2);
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(223, 38, 38, 0.15);
+    border-color: var(--primary);
   }
 `;
 
 const TrustIcon = styled.div`
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: var(--primary);
-  margin-bottom: 1.5rem;
+  width: 70px;
+  height: 70px;
+  background: rgba(223, 38, 38, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
   text-align: center;
 `;
 
 const TrustBlockTitle = styled.h3`
-  font-size: var(--fontmd);
+  font-size: var(--fontlg);
   color: var(--white);
   margin-bottom: 1rem;
   text-align: center;
@@ -356,9 +362,9 @@ const TrustBlockTitle = styled.h3`
 const TrustBlockText = styled.p`
   font-size: var(--fontxs);
   color: var(--greyLight);
-  line-height: 1.7;
+  line-height: 1.6;
   text-align: center;
-  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
 `;
 
 const TrustStat = styled.div`

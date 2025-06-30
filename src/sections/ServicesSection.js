@@ -1297,7 +1297,7 @@ const ServicesSection = () => {
             {activeTab === "netflix" && renderNetflixShowcase()}
             
             <CommonCTAButton 
-              href="https://www.instagram.com/tomoi.vn/" 
+              href="https://www.instagram.com/tomoivn/" 
               target="_blank" 
               rel="noopener noreferrer"
             >

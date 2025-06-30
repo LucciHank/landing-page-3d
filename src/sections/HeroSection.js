@@ -82,9 +82,47 @@ const Title = styled.h1`
   }
 `;
 
+const QuoteContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  opacity: 0;
+  transform: translateY(30px);
+`;
+
+const QuoteText = styled.p`
+  font-size: var(--fontxxl);
+  font-family: var(--fontL);
+  font-style: italic;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+  letter-spacing: -0.02em;
+  max-width: 800px;
+  line-height: 1.3;
+
+  @media screen and (max-width: 48em) {
+    font-size: var(--fontxl);
+  }
+`;
+
+const QuoteAuthor = styled.span`
+  font-size: var(--fontmd);
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 1.5rem;
+  align-self: flex-end;
+  font-style: normal;
+
+  @media screen and (max-width: 48em) {
+    font-size: var(--fontsm);
+  }
+`;
+
 const SubText = styled.h2`
   font-size: var(--fontlg);
-  font-family: var(--fontL);
+  font-family: var(--fontR);
   text-align: center;
   width: 80%;
   color: var(--white);
@@ -92,24 +130,7 @@ const SubText = styled.h2`
   opacity: 0;
   transform: translateY(30px);
   line-height: 1.4;
-  
-  strong {
-    color: var(--primary);
-    font-weight: 700;
-    position: relative;
-    white-space: nowrap;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary);
-      opacity: 0.5;
-    }
-  }
+  font-weight: 400;
 
   @media screen and (max-width: 48em) {
     font-size: var(--fontmd);
@@ -342,8 +363,8 @@ const UrgencyText = styled.p`
 const HeroSection = () => {
   const sectionRef = useRef(null);
   const titleRef = useRef(null);
+  const quoteRef = useRef(null);
   const subtextRef = useRef(null);
-  const logosRef = useRef(null);
   const buttonsRef = useRef(null);
   const badgeRef = useRef(null);
   const scrollDownRef = useRef(null);
@@ -399,22 +420,17 @@ const HeroSection = () => {
   useLayoutEffect(() => {
     const tl = gsap.timeline();
     
-    tl.to(titleRef.current, {
+    tl.to(quoteRef.current, {
       opacity: 1,
       y: 0,
-      duration: 1,
+      duration: 1.2,
       ease: "power4.out"
     }).to(subtextRef.current, {
       opacity: 1,
       y: 0,
       duration: 1,
       ease: "power4.out"
-    }, "-=0.5").to(logosRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      ease: "power4.out"
-    }, "-=0.5").to(buttonsRef.current, {
+    }, "-=0.7").to(buttonsRef.current, {
       opacity: 1,
       y: 0,
       duration: 1,
@@ -449,18 +465,16 @@ const HeroSection = () => {
       <Overlay />
       
       <Content>
-        <Title ref={titleRef}>Premium Không Giới Hạn</Title>
+        <QuoteContainer ref={quoteRef}>
+          <QuoteText>
+            "Customers don't buy products. They buy experiences."
+            <QuoteAuthor>- Joseph Pine</QuoteAuthor>
+          </QuoteText>
+        </QuoteContainer>
+
         <SubText ref={subtextRef}>
-          Truy cập <strong>500+ ứng dụng Premium</strong> với giá cực sốc - <strong>Tiết kiệm đến 80%</strong> chi phí! Bảo hành trọn đời, kích hoạt ngay trong 5 phút.
+          Trải nghiệm hơn 500 sản phẩm Premium với chi phí tiết kiệm lên tới 80%
         </SubText>
-        
-        <ServiceLogos ref={logosRef}>
-          <img src="https://cdn-icons-png.flaticon.com/512/5977/5977589.png" alt="Netflix Premium" />
-          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111624.png" alt="Spotify Premium" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png" alt="ChatGPT Plus" />
-          <img src="https://cdn-icons-png.flaticon.com/512/5968/5968517.png" alt="YouTube Premium" />
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/CapCut_logo.svg/2048px-CapCut_logo.svg.png" alt="CapCut Pro" />
-        </ServiceLogos>
         
         <CountdownContainer>
           <CountdownItem>
@@ -487,7 +501,7 @@ const HeroSection = () => {
         
         <ButtonContainer ref={buttonsRef}>
           <Button 
-            href="https://www.instagram.com/tomoi.vn/" 
+            href="https://www.instagram.com/tomoivn/" 
             target="_blank" 
             rel="noopener noreferrer"
           >

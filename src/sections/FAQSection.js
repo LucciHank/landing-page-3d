@@ -267,7 +267,7 @@ const FAQSection = () => {
         </FAQContainer>
         
         <CTAButton 
-          href="https://www.instagram.com/tomoi.vn/" 
+          href="https://www.instagram.com/tomoivn/" 
           target="_blank" 
           rel="noopener noreferrer"
           ref={ctaButtonRef}
