@@ -44,7 +44,7 @@ function App() {
           <ServicesSection />
           <FeaturesSection />
           <TestimonialsSection />
-          <PricingSection />
+        <PricingSection />
           <FAQSection />
           <ContactSection />
         </Suspense>

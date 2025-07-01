@@ -171,20 +171,20 @@ const FeaturesSection = () => {
   // Features data
   const features = [
     {
-      title: "Truy cập không giới hạn",
-      description: "Trải nghiệm toàn bộ nội dung Premium không giới hạn, không quảng cáo và có thể sử dụng trên nhiều thiết bị khác nhau."
+      title: "Dịch vụ cao cấp",
+      description: "Trải nghiệm toàn bộ nội dung cao cấp không giới hạn – không quảng cáo, không gián đoạn, có thể sử dụng mượt mà trên nhiều thiết bị cùng lúc."
     },
     {
-      title: "Chất lượng cao nhất",
-      description: "Thưởng thức nội dung với chất lượng tốt nhất có thể - video 4K HDR, âm thanh Dolby Atmos và trải nghiệm không bị giới hạn."
+      title: "Tài khoản ổn định",
+      description: "Với 8 năm kinh nghiệm, TomOi.vn tự tin sẽ cung cấp các tài khoản Premium ổn định, không lo bị gián đoạn giữa chừng – giúp bạn luôn có những trải nghiệm hài lòng nhất."
     },
     {
       title: "Hỗ trợ 24/7",
-      description: "Đội ngũ chăm sóc khách hàng luôn sẵn sàng hỗ trợ bạn mọi lúc, mọi nơi với các vấn đề về tài khoản hoặc dịch vụ."
+      description: "Phản hồi các khách hàng ngay lập tức, luôn sẵn sàng hỗ trợ bạn mọi lúc – mọi nơi với mọi thắc mắc về tài khoản hoặc dịch vụ."
     },
     {
-      title: "Cập nhật liên tục",
-      description: "Các tài khoản Premium của chúng tôi luôn được cập nhật và duy trì, đảm bảo trải nghiệm liền mạch dài hạn."
+      title: "Tiết kiệm tối đa",
+      description: "TomOi.vn cung cấp nhiều gói combo linh hoạt, giúp bạn tối ưu chi phí chỉ với mức giá từ vài nghìn đồng mỗi ngày."
     }
   ];
 
@@ -248,7 +248,7 @@ const FeaturesSection = () => {
 
   return (
     <Section id="features" ref={sectionRef}>
-      <Title ref={titleRef}>Tính Năng Nổi Bật</Title>
+      <Title ref={titleRef}>Ưu Điểm Nổi Bật</Title>
       
       <Container>
         <FeatureText>

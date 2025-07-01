@@ -241,39 +241,39 @@ const TestimonialsSection = () => {
   // Testimonials data
   const testimonials = [
     {
-      text: "TomOi.vn đã mang đến trải nghiệm Netflix Premium tuyệt vời cho tôi. Xem phim không quảng cáo và chất lượng 4K thực sự là một sự nâng cấp đáng giá!",
+      text: "Đăng ký Netflix Premium bên TomOi.vn thấy ưng lắm luôn. Coi phim mượt, không quảng cáo, chất lượng 4K nét căng. Mỗi tối về chỉ muốn nằm xem cho đã!.",
       rating: 5,
-      name: "Nguyễn Văn A",
+      name: "Quốc Hưng",
       location: "Hà Nội",
-      image: "https://randomuser.me/api/portraits/men/32.jpg"
+      image: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751356688/32e9cc9a-5d02-4f6e-9756-2fbe46018ae4.png"
     },
     {
-      text: "Spotify Premium từ TomOi.vn hoạt động hoàn hảo. Giờ đây tôi có thể thưởng thức âm nhạc yêu thích mà không bị gián đoạn bởi quảng cáo.",
+      text: "Lúc trước nghe nhạc toàn bị quảng cáo chen ngang, khó chịu lắm. Giờ có Spotify Premium bên TomOi.vn rồi, nhạc chơi liên tục, chọn bài nào cũng được, thích ghê!",
       rating: 5,
-      name: "Trần Thị B",
-      location: "Hồ Chí Minh",
-      image: "https://randomuser.me/api/portraits/women/44.jpg"
+      name: "Tùng Anh",
+      location: "Bình Dương",
+      image: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751357342/484034819_605697545633918_8345424114695342951_n_fzlnjp.jpg"
     },
     {
-      text: "Tôi đã dùng YouTube Premium từ TomOi.vn được 6 tháng và chưa gặp bất kỳ vấn đề gì. Dịch vụ khách hàng rất nhanh và nhiệt tình.",
-      rating: 4,
-      name: "Lê Văn C",
+      text: "Mình dùng YouTube Premium ở đây chắc cũng hơn nửa năm rồi, ổn định từ đầu đến giờ luôn. Cần hỏi gì nhắn Zalo là được trả lời liền. Dịch vụ quá ok!",
+      rating: 5,
+      name: "Ngọc Hân",
       location: "Đà Nẵng",
-      image: "https://randomuser.me/api/portraits/men/67.jpg"
+      image: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751357341/de9f5bd0-9823-4579-b59b-0c4a2feb5600_ho9mmc.jpg"
     },
     {
-      text: "Office 365 từ TomOi.vn đã giúp tôi tiết kiệm rất nhiều chi phí cho công việc. Các ứng dụng hoạt động hoàn hảo và đồng bộ trên mọi thiết bị.",
+      text: "Dùng Office 365 làm việc mỗi ngày, đồng bộ cực tiện. Lúc đầu cũng hơi lăn tăn nhưng được tư vấn kỹ, giờ dùng quen rồi, thấy quá hời so với giá.",
       rating: 5,
-      name: "Phạm Thị D",
-      location: "Cần Thơ",
-      image: "https://randomuser.me/api/portraits/women/17.jpg"
+      name: "Đức Minh",
+      location: "Hồ Chí Minh",
+      image: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751357553/485387182_2496173287407426_6110116245869713847_n_kisldd.jpg"
     },
     {
-      text: "Trước đây tôi từng nghĩ các dịch vụ Premium quá đắt, nhưng TomOi.vn đã mang đến giải pháp hoàn hảo với giá cả phải chăng. Rất đáng đồng tiền bát gạo!",
+      text: "Combo bên này giá rẻ thật sự luôn, có mấy nghìn/ngày mà dùng cả đống dịch vụ. Tưởng hàng Premium là mắc lắm, ai ngờ rẻ mà chất. Vote 5 sao!",
       rating: 5,
-      name: "Võ Minh E",
+      name: "Khắc Đức",
       location: "Huế",
-      image: "https://randomuser.me/api/portraits/men/11.jpg"
+      image: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751357848/472297629_2410161515997981_3994469589014196254_n_yzwstl.jpg"
     }
   ];
 

@@ -542,7 +542,7 @@ const HeroSection = () => {
   return (
     <Section id="hero" ref={sectionRef}>
       <VideoContainer>
-        <video src={backgroundVideo} type="video/mp4" autoPlay muted loop />
+        <video src={backgroundVideo} type="video/mp4" autoPlay muted loop playsInline preload="auto" />
       </VideoContainer>
       <Overlay />
       
@@ -598,7 +598,7 @@ const HeroSection = () => {
               document.getElementById("pricing").scrollIntoView({ behavior: "smooth" });
             }}
           >
-            Xem gói dịch vụ
+            Combo "All in one"
           </Button>
         </ButtonContainer>
       </Content>

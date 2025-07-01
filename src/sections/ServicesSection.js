@@ -77,6 +77,13 @@ const TabsContainer = styled.div`
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  
+  @media screen and (max-width: 48em) {
+    padding: 0.4rem;
+    border-radius: 25px;
+    width: 100%;
+    justify-content: space-around;
+  }
 `;
 
 const TabButton = styled.button`
@@ -94,6 +101,15 @@ const TabButton = styled.button`
   overflow: hidden;
   letter-spacing: -0.3px;
   box-shadow: ${props => props.active ? '0 8px 20px rgba(223, 38, 38, 0.3)' : 'none'};
+  
+  @media screen and (max-width: 48em) {
+    padding: 0.8rem 1rem;
+    margin: 0.2rem;
+    font-size: var(--fontxxs);
+    white-space: nowrap;
+    min-width: 0;
+    flex: 1;
+  }
   
   &:before {
     content: '';
@@ -600,6 +616,7 @@ const CommonCTAButton = styled.a`
     background-color: var(--primaryDark);
     transform: translateY(-5px);
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    text-decoration: none;
     
     &::before {
       left: 100%;
@@ -816,14 +833,14 @@ const ServicesSection = () => {
   // Hot Netflix shows data
   const netflixShows = [
     { title: "Stranger Things", image: "https://m.media-amazon.com/images/M/MV5BMDZkYmVhNjMtNWU4MC00MDQxLWE3MjYtZGMzZWI1ZjhlOWJmXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" },
-    { title: "Money Heist", image: "https://m.media-amazon.com/images/M/MV5BODI0ZTljYTMtODQ1NC00NmI0LTk1YWUtN2FlNDM1MDExMDlhXkEyXkFqcGdeQXVyMTM0NTUzNDIy._V1_FMjpg_UX1000_.jpg" },
     { title: "Squid Game", image: "https://m.media-amazon.com/images/M/MV5BYWE3MDVkN2EtNjQ5MS00ZDQ4LTliNzYtMjc2YWMzMDEwMTA3XkEyXkFqcGdeQXVyMTEzMTI1Mjk3._V1_.jpg" },
     { title: "Wednesday", image: "https://m.media-amazon.com/images/M/MV5BM2ZmMjEyZmYtOGM4YS00YTNhLWE3ZDMtNzQxM2RhNjBlODIyXkEyXkFqcGdeQXVyMTUzMTg2ODkz._V1_FMjpg_UX1000_.jpg" },
     { title: "Bridgerton", image: "https://m.media-amazon.com/images/M/MV5BNjk4MDdhODctMmFhYi00ZTNhLThlN2UtN2NhZGY0OGFlMWEwXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_.jpg" },
-    { title: "The Witcher", image: "https://m.media-amazon.com/images/M/MV5BN2FiOWU4YzYtMzZiOS00MzcyLTlkOGEtOTgwZmEwMzAxMzA3XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" },
     { title: "Peaky Blinders", image: "https://m.media-amazon.com/images/M/MV5BMTkzNjEzMDEzMF5BMl5BanBnXkFtZTgwMDI0MjE4MjE@._V1_.jpg" },
-    { title: "Dark", image: "https://m.media-amazon.com/images/M/MV5BOTk2NzUyOTctZDdlMS00MDJlLTgzNTEtNzQzYjFhNjA0YjBjXkEyXkFqcGdeQXVyMjg1NDcxNDE@._V1_.jpg" },
-    { title: "Black Mirror", image: "https://m.media-amazon.com/images/M/MV5BYTM3YWVhMDMtNjczMy00NGEyLWJhZDctYjNhMTRkNDE0ZTI1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" }
+    { title: "Black Mirror", image: "https://m.media-amazon.com/images/M/MV5BYTM3YWVhMDMtNjczMy00NGEyLWJhZDctYjNhMTRkNDE0ZTI1XkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" },
+    { title: "You", image: "https://m.media-amazon.com/images/M/MV5BMzkzOGFiY2EtZDcyZi00OWNhLThhNmYtYjQ3ODljMTM5ZDBkXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" },
+    { title: "Lupin", image: "https://m.media-amazon.com/images/M/MV5BZjEyMmUyYmYtNTAwYi00OWUwLWJlNzEtMDM2N2QxNzIwMTdjXkEyXkFqcGdeQXVyMTkxNjUyNQ@@._V1_.jpg" },
+    { title: "Arcane", image: "https://m.media-amazon.com/images/M/MV5BYmU5OWM5ZTAtNjUzOC00NmUyLTgyOWMtMjlkNjdlMDAzMzU1XkEyXkFqcGdeQXVyMDM2NDM2MQ@@._V1_.jpg" },
   ];
 
   // Tạo mảng phim với các phim được clone để loop liền mạch
@@ -831,21 +848,21 @@ const ServicesSection = () => {
 
   // Thêm data cho các ứng dụng khác
   const otherApps = [
-    { name: "Canva Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Canva_icon_2021.svg/2048px-Canva_icon_2021.svg.png" },
-    { name: "Duolingo Plus", logo: "https://play-lh.googleusercontent.com/YmxGGcmJqGMfS1nZ9yMdgZ8-cU8mFHPfrfQcVAZEVyCjGBGRF9BhTnFPc0PirKVUQIQ" },
-    { name: "Microsoft 365", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Microsoft_Office_logo_%282019%E2%80%93present%29.svg/2048px-Microsoft_Office_logo_%282019%E2%80%93present%29.svg.png" },
+    { name: "Canva Pro", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,ar_1:1/v1751350788/image-removebg-preview_11_zj1lcd.png" },
+    { name: "Duolingo Super", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,w_400,h_400,ar_1:1/v1751351007/image-removebg-preview_12_iobbzd.png" },
+    { name: "Office 365", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751351530/312fc173-9a61-4a1c-b235-a0b9d7ed5412.png" },
     { name: "Adobe Creative Cloud", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Adobe_Creative_Cloud_rainbow_icon.svg/2048px-Adobe_Creative_Cloud_rainbow_icon.svg.png" },
-    { name: "Grammarly Premium", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/Grammarly_logo_2022.svg/2048px-Grammarly_logo_2022.svg.png" },
+    { name: "Grammarly Premium", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,w_330,h_330,ar_1:1/v1751350654/image-removebg-preview_10_yoj5ew.png" },
     { name: "Disney+", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Disney%2B_logo.svg/2560px-Disney%2B_logo.svg.png" },
     { name: "Amazon Prime", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Amazon_Prime_Logo.svg/2560px-Amazon_Prime_Logo.svg.png" },
-    { name: "Apple Music", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/22/Apple_Music_logo.svg/2048px-Apple_Music_logo.svg.png" },
-    { name: "Tidal HiFi", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Tidal_%28service%29_logo.svg/2560px-Tidal_%28service%29_logo.svg.png" },
+    { name: "Apple Music", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,w_105,h_105,ar_1:1/v1751350547/image-removebg-preview_5_ivixih.png" },
+    { name: "Tidal HiFi", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,w_160,h_90,ar_16:9/v1751350546/image-removebg-preview_6_uagnoe.png" },
     { name: "Zoom Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Zoom_Logo_2022.svg/2560px-Zoom_Logo_2022.svg.png" },
     { name: "Notion Pro", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Notion-logo.svg/2048px-Notion-logo.svg.png" },
     { name: "Midjourney", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Midjourney_Emblem.png/600px-Midjourney_Emblem.png" },
-    { name: "Headspace", logo: "https://play-lh.googleusercontent.com/Ipz6PrFh9rd6mmkxJ3ykXTEVj0Qf2BcxRQOVNwlKKNTOFQDwxGp-8lNNZc5jJ-Qcjw" },
-    { name: "Calm Premium", logo: "https://play-lh.googleusercontent.com/EoiTA0z1LdQHV1xVJH8j2HuM0Bb_5-LL8xKiqYGpgUEFsN-L3MKwl1q6WvC9UHwZHw" },
-    { name: "Tinder Gold", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/74/Tinder_logo.svg/2560px-Tinder_logo.svg.png" },
+    { name: "Headspace", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,w_200,h_200,ar_1:1/v1751350546/image-removebg-preview_7_kgmv8n.png" },
+    { name: "Calm Premium", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,w_450,h_200/v1751350546/image-removebg-preview_8_gpd7fh.png" },
+    { name: "Tinder Gold", logo: "https://res.cloudinary.com/dmtqemcid/image/upload/c_crop,w_270,h_260/v1751353918/image-removebg-preview_13_yxa66j.png" },
     { name: "Bumble Premium", logo: "https://play-lh.googleusercontent.com/Qdr7Y0hn3xvRvEAkZvoMxP9dHbLOPpTWwbS-vNIGgxQBHlZMxJRR8G8ZhWxR3Qr5Ag" },
     { name: "ExpressVPN", logo: "https://play-lh.googleusercontent.com/lk8O9n6LwFUxADmJ7ZdC5GNiOcXwzLHGfzDOXYnIZuWsJJgG_2JJa6bOZ3VB5HWBtao" },
     { name: "NordVPN", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/NordVPN_logo.svg/1200px-NordVPN_logo.svg.png" },
@@ -890,41 +907,41 @@ const ServicesSection = () => {
   // Service data
   const services = {
     netflix: {
-      logo: "https://cdn-icons-png.flaticon.com/512/5977/5977589.png",
+      logo: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751349053/netflix_kbxray.png",
       title: "Netflix Premium",
       description: "Truy cập toàn bộ thư viện phim và series Netflix với chất lượng 4K. Xem các nội dung độc quyền trên Netflix mà không bị làm phiền bởi quảng cáo.",
       plans: [
         {
           name: "Gói tiết kiệm",
-          price: "45,000",
+          price: "55,000",
           oldPrice: "70,000",
           saving: "35",
           duration: "VNĐ / tháng",
           features: [
-            "Tiết kiệm 35% chi phí hàng tháng",
-            "Trải nghiệm hơn 10.000+ phim và series",
-            "Hỗ trợ cài đặt và sử dụng dễ dàng",
-            "Bảo hành và hỗ trợ 24/7"
+            "Sử dụng chung Profile với 1 khách khác",
+            "Không được cài mã pin",
+            "Chất lượng 4K+ Premium",
+            "Đăng nhập 1 thiết bị duy nhất"
           ]
         },
         {
           name: "Gói riêng tư",
-          price: "65,000",
+          price: "75,000",
           oldPrice: "130,000",
           saving: "50",
           duration: "VNĐ / tháng",
           features: [
-            "Profile riêng tư 100% cho bạn",
-            "Tùy chỉnh không giới hạn profile của bạn",
-            "Bảo mật cao với mã PIN cá nhân",
-            "Đa thiết bị - xem trên TV, điện thoại, máy tính"
+            "Toàn bộ cấu hình của gói tiết kiệm",
+            "Profile riêng tư của riêng 1 mình bạn",
+            "Tự do đổi tên và cài mã pin",
+            "Đăng nhập tối đa 2 thiết bị"
           ]
         }
       ],
       showHotTitles: true
     },
     spotify: {
-      logo: "https://cdn-icons-png.flaticon.com/512/2111/2111624.png",
+      logo: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751349919/spotify_2_bto8hb.png",
       title: "Spotify Premium",
       description: "Thưởng thức âm nhạc chất lượng cao không giới hạn, không quảng cáo và có thể tải nhạc để nghe offline. Truy cập vào các tính năng độc quyền của Spotify Premium.",
       plans: [
@@ -983,7 +1000,7 @@ const ServicesSection = () => {
       ]
     },
     capcut: {
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/CapCut_logo.svg/2048px-CapCut_logo.svg.png",
+      logo: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751349052/9744389_twunt9.webp",
       title: "CapCut Pro",
       description: "Phần mềm chỉnh sửa video chuyên nghiệp với các tính năng cao cấp như xóa nền, hiệu ứng đặc biệt và công cụ chỉnh sửa tiên tiến.",
       plans: [
@@ -1055,7 +1072,7 @@ const ServicesSection = () => {
       ]
     },
     youtube: {
-      logo: "https://cdn-icons-png.flaticon.com/512/5968/5968517.png",
+      logo: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751349310/youtube_rr7sib.png",
       title: "YouTube Premium",
       description: "Xem YouTube không quảng cáo, phát trong nền, tải xuống video và truy cập YouTube Music Premium. Trải nghiệm YouTube tuyệt vời nhất.",
       plans: [
@@ -1114,7 +1131,7 @@ const ServicesSection = () => {
       ]
     },
     chatgpt: {
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1200px-ChatGPT_logo.svg.png",
+      logo: "https://res.cloudinary.com/dmtqemcid/image/upload/v1751349310/chatgpt_qw8s87.png",
       title: "ChatGPT Plus",
       description: "Truy cập ưu tiên vào ChatGPT kể cả trong giờ cao điểm, phản hồi nhanh hơn và sử dụng các mô hình AI tiên tiến như GPT-4.",
       plans: [
@@ -1125,10 +1142,10 @@ const ServicesSection = () => {
           saving: "57",
           duration: "VNĐ / tháng",
           features: [
-            "Tiết kiệm 57% so với giá gốc - chỉ 50K/người",
-            "Truy cập GPT-4 - mô hình AI tiên tiến nhất hiện nay", 
-            "Truy cập thông tin internet thời gian thực",
-            "Phản hồi nhanh chóng - không bị giới hạn lượt dùng"
+            "Tiết kiệm 70% so với giá gốc",
+            "Sử dụng tài khoản do TomOi.vn cấp", 
+            "Giữ nguyên thông ti tài khoản",
+            "Dùng chung với 2 khách nữa"
           ]
         },
         {
@@ -1138,10 +1155,10 @@ const ServicesSection = () => {
           saving: "40",
           duration: "VNĐ / tháng",
           features: [
-            "Tài khoản cá nhân 100% - không chia sẻ với ai", 
-            "Truy cập GPT-4 và GPT-4o mới nhất",
-            "API tích hợp với các ứng dụng khác",
-            "Ưu tiên cao nhất - không bao giờ bị lỗi máy chủ"
+            "Tiết kiệm 30% so với tự đăng ký gói Plus 20$ của OpenAI", 
+            "Nâng cấp chính chủ lên tài khoản cá nhân",
+            "Thoải mái đổi thông tin tài khoản sau khi nâng thành công",
+            "Dùng rất ổn định, giống 100% gói Plus 20$ tự đăng ký"
           ]
         }
       ]
@@ -1280,19 +1297,19 @@ const ServicesSection = () => {
             active={activeTab === "capcut"} 
             onClick={() => setActiveTab("capcut")}
           >
-            CapCut Pro
+            CapCut
           </TabButton>
           <TabButton 
             active={activeTab === "youtube"} 
             onClick={() => setActiveTab("youtube")}
           >
-            YouTube Premium
+            YouTube
           </TabButton>
           <TabButton 
             active={activeTab === "chatgpt"} 
             onClick={() => setActiveTab("chatgpt")}
           >
-            ChatGPT Plus
+            ChatGPT
           </TabButton>
         </TabsContainer>
         

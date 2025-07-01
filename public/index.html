@@ -35,6 +35,7 @@
     <link rel="preconnect" href="https://www.googletagmanager.com">
     <link rel="preconnect" href="https://www.google-analytics.com">
     <link rel="preconnect" href="https://formspree.io">
+    <link rel="preconnect" href="https://res.cloudinary.com">
     
     <!-- Font Awesome for Icons - async loading -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
@@ -42,12 +43,12 @@
     <title>TomOi.vn - 500+ Ứng Dụng Premium Chính Hãng | Netflix, Spotify, ChatGPT Plus Giá Rẻ</title>
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3CLP9BLGF5"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX', {
+      gtag('config', 'G-3CLP9BLGF5', {
         'page_title': 'Trang chủ',
         'cookie_domain': 'tomoi.vn',
         'cookie_flags': 'SameSite=None;Secure',
@@ -210,7 +211,7 @@
         border-top: 3px solid #df2626;
         border-radius: 50%;
         animation: spin 1s linear infinite;
-      }
+        }
       @keyframes spin {
         0% { transform: rotate(0deg); }
         100% { transform: rotate(360deg); }
@@ -229,7 +230,78 @@
         left: 0;
         z-index: 99;
       }
+      /* Optimize LCP - Preload hero section background */
+      .hero-bg-placeholder {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.8) 80%);
+        z-index: -1;
+      }
     </style>
+    
+    <!-- Optimize for mobile -->
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    
+    <!-- Core Web Vitals & Performance optimization -->
+    <script>
+      // Optimize CLS
+      document.addEventListener('DOMContentLoaded', function() {
+        // Create performance observer
+        if ('PerformanceObserver' in window) {
+          // Layout shifts
+          const layoutShiftObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              // Log layout shifts > 0.1
+              if (entry.value > 0.1) {
+                console.warn('Large layout shift:', entry);
+              }
+            }
+          });
+          layoutShiftObserver.observe({type: 'layout-shift', buffered: true});
+          
+          // Long tasks
+          const longTaskObserver = new PerformanceObserver((list) => {
+            for (const entry of list.getEntries()) {
+              // Log tasks taking > 50ms
+              console.warn('Long task detected:', entry.duration, 'ms');
+            }
+          });
+          longTaskObserver.observe({type: 'longtask', buffered: true});
+          
+          // LCP
+          const lcpObserver = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            const lastEntry = entries[entries.length - 1];
+            console.log('LCP:', lastEntry.startTime, 'ms');
+          });
+          lcpObserver.observe({type: 'largest-contentful-paint', buffered: true});
+        }
+      });
+      
+      // Optimize resource loading
+      document.addEventListener('DOMContentLoaded', function() {
+        // Lazy load non-critical resources
+        setTimeout(function() {
+          const lazyScripts = Array.from(document.querySelectorAll('script[data-lazy]'));
+          lazyScripts.forEach(script => {
+            const newScript = document.createElement('script');
+            Array.from(script.attributes).forEach(attr => {
+              if (attr.name !== 'data-lazy') {
+                newScript.setAttribute(attr.name, attr.value);
+              }
+            });
+            newScript.innerHTML = script.innerHTML;
+            script.parentNode.replaceChild(newScript, script);
+          });
+        }, 1000);
+      });
+    </script>
   </head>
   <body>
     <noscript>Bạn cần bật JavaScript để chạy ứng dụng này.</noscript>

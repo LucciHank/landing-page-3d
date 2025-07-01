@@ -529,7 +529,7 @@ const ContactSection = () => {
 
   return (
     <Section id="contact" ref={sectionRef}>
-      <Title ref={titleRef}>Liên Hệ Với Chúng Tôi</Title>
+      <Title ref={titleRef}>Liên Hệ Với TomOi.vn</Title>
       
       <Container>
         <LeftColumn ref={leftColumnRef}>
@@ -539,17 +539,16 @@ const ContactSection = () => {
               Liên hệ với chúng tôi để được tư vấn. Luôn sẵn sàng hỗ trợ bạn 24/7.
             </InfoText>
             <InfoText>
-              <strong>Email:</strong> support@tomoi.vn<br />
-              <strong>Hotline:</strong> 0988.888.888<br />
-              <strong>Địa chỉ:</strong> 123 Đường Lê Lợi, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh
+              <strong>Email:</strong> help@tomoi.vn<br />
+              <strong>Hotline:</strong> 0562.147.786<br />
+              <strong>Fanpage:</strong> <a href="https://www.facebook.com/tomoivn" target="_blank" rel="noopener noreferrer"><b>TomOi.vn</b></a><br />
             </InfoText>
           </InfoBox>
           
           <InfoBox>
             <InfoTitle>Giờ làm việc</InfoTitle>
             <InfoText>
-              <strong>Thứ 2 - Thứ 6:</strong> 8:00 - 21:00<br />
-              <strong>Thứ 7 - Chủ Nhật:</strong> 9:00 - 18:00
+              <strong>Thứ 2 - Chủ nhật:</strong> 8:00 - 23:00<br />
             </InfoText>
           </InfoBox>
           

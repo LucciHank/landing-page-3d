@@ -239,18 +239,18 @@ const NavBar = () => {
       <NavContainer scrolled={scrolled}>
         <NavContent>
           <Logo>
-            <img src={logo} alt="TomOi.vn Logo" />
-            <span>TomOi.vn</span>
+          <span>Tom<span style={{ color: "#df2626", marginLeft: "-1px", display: "inline-block", verticalAlign: "baseline", position: "relative", top: "1px" }}><b>Oi</b></span>.vn</span>
           </Logo>
           
           <NavItems>
             <NavItem onClick={() => scrollToSection('hero')}>Trang chủ</NavItem>
-            <NavItem onClick={() => scrollToSection('services')}>Dịch vụ Premium</NavItem>
+            <NavItem onClick={() => scrollToSection('services')}>Dịch vụ</NavItem>
             <NavItem onClick={() => scrollToSection('features')}>Tính năng</NavItem>
             <NavItem onClick={() => scrollToSection('testimonials')}>Đánh giá</NavItem>
-            <NavItem onClick={() => scrollToSection('pricing')}>Combo All in one</NavItem>
+            <NavItem onClick={() => scrollToSection('pricing')}>Combo</NavItem>
             <NavItem onClick={() => scrollToSection('faq')}>FAQ</NavItem>
-            <NavItem onClick={() => window.open('https://help.tomoi.vn', '_blank')}>Hỗ trợ</NavItem>
+            <NavItem onClick={() => window.open('https://help.tomoi.vn/huong-dan-su-dung', '_blank')}>Hướng dẫn</NavItem>
+            <NavItem onClick={() => window.open('https://help.tomoi.vn/chinh-sach-bao-hanh', '_blank')}>Bảo hành</NavItem>
             <CTAButton onClick={() => scrollToSection('contact')}>Liên hệ ngay</CTAButton>
           </NavItems>
           
@@ -265,12 +265,13 @@ const NavBar = () => {
       <MobileMenu isOpen={mobileMenuOpen}>
         <ul>
           <li onClick={() => scrollToSection('hero')}>Trang chủ</li>
-          <li onClick={() => scrollToSection('services')}>Dịch vụ Premium</li>
+          <li onClick={() => scrollToSection('services')}>Dịch vụ</li>
           <li onClick={() => scrollToSection('features')}>Tính năng</li>
           <li onClick={() => scrollToSection('testimonials')}>Đánh giá</li>
-          <li onClick={() => scrollToSection('pricing')}>Combo All in one</li>
+          <li onClick={() => scrollToSection('pricing')}>Combo</li>
           <li onClick={() => scrollToSection('faq')}>FAQ</li>
-          <li onClick={() => window.open('https://help.tomoi.vn', '_blank')}>Hỗ trợ</li>
+          <li onClick={() => window.open('https://help.tomoi.vn/huong-dan-su-dung', '_blank')}>Hướng dẫn</li>
+          <li onClick={() => window.open('https://help.tomoi.vn/chinh-sach-bao-hanh', '_blank')}>Bảo hành</li>
         </ul>
         <CTAButton onClick={() => scrollToSection('contact')}>Liên hệ ngay</CTAButton>
       </MobileMenu>

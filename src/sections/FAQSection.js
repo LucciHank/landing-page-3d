@@ -173,28 +173,36 @@ const FAQSection = () => {
   
   const faqData = [
     {
-      question: "Làm sao để mua và nhận tài khoản?",
-      answer: "Rất đơn giản, bạn chỉ cần nhấn \"Liên hệ ngay\", chúng tôi sẽ hướng dẫn thanh toán qua chuyển khoản ngân hàng hoặc ví điện tử (Momo, ZaloPay, VNPay). Sau khi thanh toán, thông tin tài khoản Premium sẽ được gửi cho bạn qua email hoặc tin nhắn trong 5-10 phút. Chúng tôi cũng sẽ hướng dẫn chi tiết cách đăng nhập và sử dụng tài khoản."
+      "question": "❓ Làm sao để mua và nhận tài khoản?",
+      "answer": "Rất đơn giản! Bạn chỉ cần nhấn “Liên hệ ngay”, TomOi.vn sẽ hướng dẫn thanh toán qua chuyển khoản ngân hàng hoặc ví điện tử (Momo, ZaloPay, VNPay). Sau khi thanh toán thành công, bạn sẽ nhận được tài khoản Premium qua email hoặc tin nhắn trong vòng 5–10 phút, kèm hướng dẫn đăng nhập chi tiết."
     },
     {
-      question: "Tài khoản \"chia sẻ\" khác gì tài khoản \"chính chủ\"?",
-      answer: "Tài khoản chia sẻ là bạn dùng chung gói với người khác (mỗi người một hồ sơ/profile riêng) nên chi phí rẻ hơn, nhưng có thể hạn chế một số quyền (như không đổi được mật khẩu). Tài khoản chính chủ là đăng ký riêng cho bạn, đảm bảo toàn quyền kiểm soát (đổi mật khẩu, thông tin tùy ý). TomOi.vn cung cấp cả hai lựa chọn tùy nhu cầu và ngân sách của bạn."
+      "question": "❓ Tài khoản “chia sẻ” khác gì tài khoản “chính chủ”?",
+      "answer": "Tài khoản chính chủ: bạn là người duy nhất sử dụng tài khoản, có thể tùy chỉnh thông tin, tạo playlist, lưu lịch sử,…\n\nTài khoản chia sẻ: là dạng dùng chung theo slot, không chỉnh sửa thông tin, không can thiệp vào tài khoản gốc – giá rẻ hơn nhiều, vẫn dùng đầy đủ tính năng Premium."
     },
     {
-      question: "Việc sử dụng tài khoản chung có an toàn không?",
-      answer: "Chúng tôi cam kết an toàn. Mỗi khách hàng sẽ có profile riêng (đối với gói chia sẻ) và bảo mật thông tin cá nhân. TomOi.vn chỉ sử dụng các phương thức chia sẻ hợp pháp (vd: Family plan) do nhà cung cấp dịch vụ cho phép, tuyệt đối không dùng hàng lậu hay công cụ hack. Vì vậy tài khoản của bạn sẽ hoạt động ổn định, an toàn."
+      "question": "❓ Việc sử dụng tài khoản chung có an toàn không?",
+      "answer": "Hoàn toàn an toàn nếu bạn mua từ TomOi.vn. Các tài khoản chung khi được gửi đến bạn đều sẽ được TomOi.vn gửi kèm hướng dẫn chi tiết để đảm bảo quyền lợi và an toàn cho khách hàng."
     },
     {
-      question: "Tôi cần hỗ trợ thì liên hệ bằng cách nào?",
-      answer: "Bạn có thể liên hệ đội hỗ trợ của TomOi.vn qua Zalo, Facebook hoặc Instagram (nút \"Liên hệ ngay\" ở cuối trang). Chúng tôi trực 24/7 để giải đáp mọi vấn đề: từ hướng dẫn sử dụng, hỗ trợ kỹ thuật đến gia hạn dịch vụ khi hết hạn."
+      "question": "❓ Tôi có thể sử dụng tài khoản trên bao nhiêu thiết bị?",
+      "answer": "Với tài khoản chính chủ: bạn có thể đăng nhập trên nhiều thiết bị (số lượng tùy nền tảng, thường từ 5-10 thiết bị).\n\nVới tài khoản chia sẻ: vui lòng sử dụng duy nhất trên 1 thiết bị cố định duy nhất, không được đăng nhập nhiều nơi."
     },
     {
-      question: "Nếu tài khoản bị lỗi hoặc không đăng nhập được thì sao?",
-      answer: "Chúng tôi cam kết bảo hành trong suốt thời gian sử dụng. Nếu tài khoản gặp vấn đề, bạn chỉ cần liên hệ với đội hỗ trợ của TomOi.vn qua Zalo, Facebook hoặc Instagram. Chúng tôi sẽ khắc phục hoặc cung cấp tài khoản thay thế trong thời gian nhanh nhất, thường là trong vòng 30 phút đến 24 giờ tùy theo dịch vụ."
+      "question": "❓ Nếu tài khoản bị lỗi hoặc không đăng nhập được thì sao?",
+      "answer": "Bạn chỉ cần nhắn Zalo, Fanpage hoặc Hotline hỗ trợ. Chúng tôi cam kết phản hồi nhanh và hỗ trợ xử lý sự cố trong vòng 1–12 giờ, tùy mức độ. Trường hợp cần thiết, sẽ cấp lại hoặc đổi tài khoản mới hoàn toàn."
     },
     {
-      question: "TomOi.vn có cung cấp hóa đơn VAT không?",
-      answer: "Có, chúng tôi có thể cung cấp hóa đơn VAT cho các đơn hàng từ 500.000đ trở lên. Vui lòng thông báo nhu cầu xuất hóa đơn khi đặt hàng và cung cấp thông tin xuất hóa đơn đầy đủ. Hóa đơn sẽ được gửi qua email trong vòng 3-5 ngày làm việc sau khi thanh toán."
+      "question": "❓ TomOi.vn có hỗ trợ sau bán không?",
+      "answer": "Có! Chúng tôi luôn bảo hành tài khoản trọn gói mà bạn đã mua theo phương châm \"Mua bao lâu - Bảo hành bấy lâu\". Bất cứ khi nào bạn cần, bạn chỉ cần đọc thần chú \"Tôm Ơi!\", Tôm sẽ xuất hiện và hỗ trợ bạn ngay lập tức."
+    },
+    {
+      "question": "❓ TomOi.vn có cung cấp hóa đơn VAT không?",
+      "answer": "Đối với các doanh nghiệp mua đơn hàng giá trị cao, TomOi.vn luôn hỗ trợ hợp đồng và hóa đơn VAT (Đối với 1 số loại sản phẩm nhất định)."
+    },
+    {
+      "question": "❓ Tôi có được hoàn tiền nếu dịch vụ không như cam kết?",
+      "answer": "TomOi.vn luôn ưu tiên quyền lợi khách hàng. Nếu tài khoản gặp lỗi do hệ thống và không thể khắc phục, TomOi.vn cam kết hoàn tiền 100% hoặc hỗ trợ đổi tài khoản khác phù hợp. Bạn có thể tham khảo chính sách bảo hành của TomOi.vn <b><a href=\"https://help.tomoi.vn/chinh-sach-bao-hanh\" target=\"_blank\">tại đây</a></b>."
     }
   ];
 
@@ -260,7 +268,7 @@ const FAQSection = () => {
                 <div className="icon">+</div>
               </FAQHeader>
               <FAQContent isOpen={openIndex === index}>
-                <p>{faq.answer}</p>
+                <p dangerouslySetInnerHTML={{ __html: faq.answer }}></p>
               </FAQContent>
             </FAQItem>
           ))}

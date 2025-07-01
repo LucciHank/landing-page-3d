@@ -296,8 +296,9 @@ const TrustSection = styled.div`
 `;
 
 const TrustTitle = styled.h2`
-  font-size: var(--fontxl);
+  font-size: var(--fontxxl);
   font-family: var(--fontL);
+  text-transform: capitalize;
   color: var(--white);
   text-align: center;
   margin-bottom: 3.5rem;
@@ -306,16 +307,16 @@ const TrustTitle = styled.h2`
   &::after {
     content: '';
     position: absolute;
-    bottom: -15px;
+    bottom: -20px;
     left: 50%;
     transform: translateX(-50%);
-    width: 80px;
+    width: 100px;
     height: 4px;
     background: var(--primary);
   }
   
   @media screen and (max-width: 48em) {
-    font-size: var(--fontlg);
+    font-size: var(--fontxl);
   }
 `;
 
@@ -701,7 +702,7 @@ const PricingSection = () => {
       </Container>
       
       <TrustSection ref={trustRef}>
-        <TrustTitle>Tại Sao Nên Mua Hàng Tại TomOi.vn</TrustTitle>
+        <TrustTitle>Giá trị khác biệt từ TomOi.vn</TrustTitle>
         
         <TrustBlocksContainer>
           <TrustBlock>
@@ -719,7 +720,7 @@ const PricingSection = () => {
             <TrustIcon>
               <i className="fas fa-bolt"></i>
             </TrustIcon>
-            <TrustBlockTitle>Giao Dịch Tốc Độ Cực Nhanh</TrustBlockTitle>
+            <TrustBlockTitle>Giao Dịch Cực Nhanh</TrustBlockTitle>
             <TrustStat>95%</TrustStat>
             <TrustBlockText>
               Đơn hàng xử lý trong 5 phút. Nhận tài khoản ngay sau khi thanh toán.
@@ -730,7 +731,7 @@ const PricingSection = () => {
             <TrustIcon>
               <i className="fas fa-th-large"></i>
             </TrustIcon>
-            <TrustBlockTitle>Đa Nền Tảng</TrustBlockTitle>
+            <TrustBlockTitle>Hỗ Trợ Đa Nền Tảng</TrustBlockTitle>
             <TrustStat>500+</TrustStat>
             <TrustBlockText>
               Hơn 500 ứng dụng Premium từ học tập, giải trí đến công cụ làm việc chuyên nghiệp.
@@ -741,8 +742,8 @@ const PricingSection = () => {
             <TrustIcon>
               <i className="fas fa-piggy-bank"></i>
             </TrustIcon>
-            <TrustBlockTitle>Giá Rẻ - Tiết Kiệm Đến 80%</TrustBlockTitle>
-            <TrustStat>-80%</TrustStat>
+            <TrustBlockTitle>Giá Cả Siêu Tiết Kiệm</TrustBlockTitle>
+            <TrustStat>80%</TrustStat>
             <TrustBlockText>
               Tiết kiệm từ 30% đến 80% so với mua trực tiếp nhờ chương trình khuyến mãi đặc biệt.
             </TrustBlockText>
@@ -752,10 +753,10 @@ const PricingSection = () => {
             <TrustIcon>
               <i className="fas fa-headset"></i>
             </TrustIcon>
-            <TrustBlockTitle>Hỗ Trợ 24/7 - Bảo Hành Nghiêm Túc</TrustBlockTitle>
+            <TrustBlockTitle>Hỗ Trợ Mọi Lúc - Mọi Nơi</TrustBlockTitle>
             <TrustStat>24/7</TrustStat>
             <TrustBlockText>
-              Hỗ trợ nhanh qua Zalo, Facebook, Instagram. Đổi mới miễn phí 100% nếu gặp lỗi.
+              Hỗ trợ nhanh qua Hotline, Zalo, Facebook, Instagram, bảo hành ngay lập tức nếu gặp lỗi.
             </TrustBlockText>
           </TrustBlock>
           
@@ -766,7 +767,7 @@ const PricingSection = () => {
             <TrustBlockTitle>Uy Tín Được Kiểm Chứng</TrustBlockTitle>
             <TrustStat>4.9/5</TrustStat>
             <TrustBlockText>
-              Đánh giá trung bình 4.9/5 từ khách hàng với hàng trăm feedback thực tế mỗi ngày.
+              Đánh giá trung bình 4.9/5 từ khách hàng với rất nhiều feedback thực tế mỗi ngày.
             </TrustBlockText>
           </TrustBlock>
         </TrustBlocksContainer>
