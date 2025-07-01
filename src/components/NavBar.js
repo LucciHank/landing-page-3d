@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import logo from '../assets/svg/104447_apple_logo_icon.svg';
+import tomoiLogo from '../assets/Images/tomoi1.png';
 
 const NavContainer = styled.nav`
   position: fixed;
@@ -37,13 +37,14 @@ const Logo = styled.div`
   
   img {
     height: 2rem;
-    filter: brightness(0) invert(1);
+    margin-right: 0.5rem;
+    position: relative;
+    top: -2px;
   }
   
   span {
     font-size: var(--fontmd);
     font-weight: 600;
-    margin-left: 0.5rem;
     color: var(--white);
     letter-spacing: 0.5px;
   }
@@ -239,7 +240,8 @@ const NavBar = () => {
       <NavContainer scrolled={scrolled}>
         <NavContent>
           <Logo>
-          <span>Tom<span style={{ color: "#df2626", marginLeft: "-1px", display: "inline-block", verticalAlign: "baseline", position: "relative", top: "1px" }}><b>Oi</b></span>.vn</span>
+            <img src={tomoiLogo} alt="TomOi Logo" />
+            <span>Tom<span style={{ color: "#df2626", marginLeft: "-1px", display: "inline-block", verticalAlign: "baseline", position: "relative", top: "1px" }}><b>Oi</b></span>.vn</span>
           </Logo>
           
           <NavItems>
