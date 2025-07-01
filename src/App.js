@@ -3,6 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import GlobalStyle from './styles/GlobalStyle';
 import { ColorContextProvider } from "./context/ColorContext";
 import NavBar from './components/NavBar';
+import { Analytics } from '@vercel/analytics/react';
 
 // Lazy load sections
 const HeroSection = lazy(() => import('./sections/HeroSection'));
@@ -44,11 +45,12 @@ function App() {
           <ServicesSection />
           <FeaturesSection />
           <TestimonialsSection />
-        <PricingSection />
+          <PricingSection />
           <FAQSection />
           <ContactSection />
         </Suspense>
       </ColorContextProvider>
+      <Analytics />
     </Router>
   );
 }
